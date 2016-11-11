@@ -1,5 +1,5 @@
 # AnnotationProcessorHelper
-[![Release](https://jitpack.io/v/User/Repo.svg)](https://jitpack.io/#bunodles/AnnotationProcessorHelper)
+[![Release](https://jitpack.io/v/brunodles/AnnotationProcessorHelper.svg)](https://jitpack.io/#brunodles/AnnotationProcessorHelper)
 
 A helper to create annotation processors.
 
