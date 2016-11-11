@@ -23,7 +23,7 @@ public abstract class AbstractProcessorBase extends AbstractProcessor {
 
     @Override
     public Set<String> getSupportedAnnotationTypes() {
-        HashSet<String> strings = new HashSet<>();
+        HashSet<String> strings = new HashSet<String>();
 
         SupportedAnnotationTypes sat = this.getClass().getAnnotation(SupportedAnnotationTypes.class);
         if (sat != null) {
