@@ -1,0 +1,40 @@
+group 'com.github.brunodles'
+version '1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    testCompile 'org.mockito:mockito-core:2.0.54-beta'
+
+    testCompile 'com.mscharhag.oleaster:oleaster-matcher:0.1.2'
+    testCompile 'com.mscharhag.oleaster:oleaster-runner:0.1.2'
+    testCompile 'com.github.brunodles:OleasterSuiteRunner:0.1'
+}
+
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
