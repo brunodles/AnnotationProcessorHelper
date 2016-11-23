@@ -19,9 +19,9 @@ import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 
-public abstract class AbstractProcessorBase extends AbstractProcessor {
+public abstract class ProcessorBase extends AbstractProcessor {
 
-    private static final String TAG = "AbstractProcessorBase";
+    private static final String TAG = "ProcessorBase";
     protected Elements elementUtils;
 
     @Override
