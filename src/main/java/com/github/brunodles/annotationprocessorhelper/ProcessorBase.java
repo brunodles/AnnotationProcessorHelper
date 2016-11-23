@@ -17,6 +17,7 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
+import javax.tools.FileObject;
 import javax.tools.JavaFileObject;
 
 public abstract class ProcessorBase extends AbstractProcessor {
@@ -60,11 +61,17 @@ public abstract class ProcessorBase extends AbstractProcessor {
         return (TypeElement) TypeUtils.asElement(typeMirror);
     }
 
-    protected void writeClass(String className, String packageName, String content) {
+    /**
+     * Create a file using the {@link javax.annotation.processing.Filer}, look the example bellow
+     * <code>
+     JavaFileObject fileObject = processingEnv.getFiler().createSourceFile(fileName, originatingElements);
+     * </code>
+     * @param fileObject a file object.
+     * @param content the file content
+     */
+    protected void writeFile(FileObject fileObject, String content) {
         OutputStreamWriter osw = null;
         try {
-            JavaFileObject fileObject = processingEnv.getFiler().createSourceFile(packageName + "." + className,
-                    elementUtils.getTypeElement(packageName));
             OutputStream os = fileObject.openOutputStream();
             osw = new OutputStreamWriter(os, Charset.forName("UTF-8"));
             osw.write(content, 0, content.length());
