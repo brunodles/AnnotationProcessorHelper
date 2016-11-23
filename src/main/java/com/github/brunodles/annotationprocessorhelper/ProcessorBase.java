@@ -55,12 +55,12 @@ public abstract class ProcessorBase extends AbstractProcessor {
         return Collections.unmodifiableSet(strings);
     }
 
-    private TypeElement asTypeElement(TypeMirror typeMirror) {
+    protected TypeElement asTypeElement(TypeMirror typeMirror) {
         Types TypeUtils = this.processingEnv.getTypeUtils();
         return (TypeElement) TypeUtils.asElement(typeMirror);
     }
 
-    private void writeClass(String className, String packageName, String content) {
+    protected void writeClass(String className, String packageName, String content) {
         OutputStreamWriter osw = null;
         try {
             JavaFileObject fileObject = processingEnv.getFiler().createSourceFile(packageName + "." + className,
