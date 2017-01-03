@@ -1,4 +1,4 @@
-package com.github.brunodles.annotationprocessorhelper;
+package com.brunodles.annotationprocessorhelper;
 
 import java.lang.annotation.Annotation;
 import java.lang.annotation.Documented;

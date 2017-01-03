@@ -1,4 +1,4 @@
-package com.github.brunodles.annotationprocessorhelper;
+package com.brunodles.annotationprocessorhelper;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -18,7 +18,6 @@ import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 import javax.tools.FileObject;
-import javax.tools.JavaFileObject;
 
 public abstract class ProcessorBase extends AbstractProcessor {
 
@@ -57,8 +56,8 @@ public abstract class ProcessorBase extends AbstractProcessor {
     }
 
     protected TypeElement asTypeElement(TypeMirror typeMirror) {
-        Types TypeUtils = this.processingEnv.getTypeUtils();
-        return (TypeElement) TypeUtils.asElement(typeMirror);
+        Types typeUtils = this.processingEnv.getTypeUtils();
+        return (TypeElement) typeUtils.asElement(typeMirror);
     }
 
     /**
