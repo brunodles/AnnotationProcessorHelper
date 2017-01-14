@@ -1,14 +1,5 @@
 package com.brunodles.annotationprocessorhelper;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.lang.annotation.Annotation;
-import java.nio.charset.Charset;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
@@ -17,8 +8,17 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
-import javax.tools.FileObject;
+import java.lang.annotation.Annotation;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * A Helper class to help to write AnnotationProcessors.
+ * <p>
+ * The main function of this class is to help to declare the supported annotations,
+ * by using {@link SupportedAnnotations} annotation.
+ */
 public abstract class ProcessorBase extends AbstractProcessor {
 
     private static final String TAG = "ProcessorBase";
@@ -58,37 +58,6 @@ public abstract class ProcessorBase extends AbstractProcessor {
     protected TypeElement asTypeElement(TypeMirror typeMirror) {
         Types typeUtils = this.processingEnv.getTypeUtils();
         return (TypeElement) typeUtils.asElement(typeMirror);
-    }
-
-    /**
-     * Create a file using the {@link javax.annotation.processing.Filer}, look the example bellow
-     * <code>
-     JavaFileObject fileObject = processingEnv.getFiler().createSourceFile(fileName, originatingElements);
-     * </code>
-     * @param fileObject a file object.
-     * @param content the file content
-     */
-    protected void writeFile(FileObject fileObject, String content) {
-        OutputStreamWriter osw = null;
-        try {
-            OutputStream os = fileObject.openOutputStream();
-            osw = new OutputStreamWriter(os, Charset.forName("UTF-8"));
-            osw.write(content, 0, content.length());
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            fatalError(TAG, ex.getMessage());
-        } finally {
-            try {
-                if (osw != null) {
-                    osw.flush();
-                    osw.close();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                fatalError(TAG, ex.getMessage());
-            }
-        }
     }
 
     private void warnAnnotationTypeNotFound() {
