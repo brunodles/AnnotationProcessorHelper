@@ -21,14 +21,13 @@ public final class FileUtils {
      * @param content    the file content
      * @throws IOException when failed to write the file
      */
-    protected void writeFile(FileObject fileObject, String content) throws IOException {
+    public static void writeFile(FileObject fileObject, String content) throws IOException {
         OutputStreamWriter osw = null;
         IOException exception = null;
         try {
             OutputStream os = fileObject.openOutputStream();
             osw = new OutputStreamWriter(os, Charset.forName("UTF-8"));
             osw.write(content, 0, content.length());
-
         } catch (IOException ex) {
             exception = ex;
         } finally {
