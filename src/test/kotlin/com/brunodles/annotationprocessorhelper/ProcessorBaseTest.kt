@@ -50,7 +50,7 @@ class ProcessorBaseTest {
                 describe("without annotations") {
                     before { setupLoggerProcessor() }
                     it("should call messager.printMessage") {
-                        verify(messager).printMessage(eq(Diagnostic.Kind.WARNING), Matchers.anyString())
+                        verify<Messager>(messager).printMessage(eq(Diagnostic.Kind.WARNING), Matchers.anyString())
                     }
                 }
             }
@@ -60,14 +60,13 @@ class ProcessorBaseTest {
                 describe("when #log") {
                     beforeEach { processor!!.log("TAG", "message") }
                     it("should call messager.printMessage") {
-                        verify(messager).printMessage(eq(Diagnostic.Kind.NOTE), eq("TAG - message\n"))
+                        verify<Messager>(messager).printMessage(eq(Diagnostic.Kind.NOTE), eq("TAG - message\n"))
                     }
                 }
                 describe("when #fatalError") {
                     beforeEach { processor!!.fatalError("TAG", "error") }
                     it("should call messager.printMessage") {
-                        verify(messager).printMessage(eq(Diagnostic.Kind.ERROR), eq("TAG FATAL ERROR - error\n"))
-                    }
+                        verify<Messager>(messager).printMessage(eq(Diagnostic.Kind.ERROR), eq("TAG FATAL ERROR - error\n")) }
                 }
             }
 
