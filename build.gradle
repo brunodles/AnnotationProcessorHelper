@@ -2,7 +2,6 @@ project.ext.kotlin_version = '1.0.6'
 
 buildscript {
     repositories {
-        maven { url "https://dl.bintray.com/brunodles/TempRepo/" }
         jcenter()
         mavenCentral()
     }
@@ -19,7 +18,7 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 repositories {
-    mavenLocal()
+    maven { url "https://dl.bintray.com/brunodles/TempRepo/" }
     mavenCentral()
 }
 
