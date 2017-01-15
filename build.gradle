@@ -37,7 +37,7 @@ dependencies {
 
 ext.maven = [
         group   : "com.brunodles",
-        version : '1.2.0',
+        version : '1.3.0',
         repo    : "TempRepo",
         name    : "AnnotationProcessorHelper",
         artifact: "annotationprocessorhelper",
