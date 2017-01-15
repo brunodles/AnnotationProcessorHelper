@@ -1,5 +1,5 @@
+[![Build Status](https://travis-ci.org/brunodles/AnnotationProcessorHelper.svg?branch=master)](https://travis-ci.org/brunodles/AnnotationProcessorHelper)
 # AnnotationProcessorHelper
-[![Release](https://jitpack.io/v/brunodles/AnnotationProcessorHelper.svg)](https://jitpack.io/#brunodles/AnnotationProcessorHelper)
 
 A helper to create annotation processors.
 
@@ -22,13 +22,13 @@ To make it work, you need to extend the `AbstractProcessorBase`.
 I know, this is bad, may we figure out another way to do that.
 
 ## Installing
-Add jitpack repository to your project, by adding the url bellow on your *project level gradle file*
+Add the repository to your project, by adding the url bellow on your *project level gradle file*
 `root/build.gradle`.
 ```gradle
 	allprojects {
 		repositories {
 			...
-			maven { url "https://jitpack.io" }
+			maven { url "https://dl.bintray.com/brunodles/TempRepo" }
 		}
 	}
 ```
@@ -36,7 +36,7 @@ Add jitpack repository to your project, by adding the url bellow on your *projec
 At your *app level gradle file* add the dependency
 ```gradle
 	dependencies {
-	    compile 'com.github.brunodles:AnnotationProcessorHelper:1.0.0'
+	    compile 'com.brunodles:annotationprocessorhelper:1.3.0'
 	}
 ```
 
