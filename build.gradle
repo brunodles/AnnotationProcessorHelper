@@ -1,13 +1,13 @@
-project.ext.kotlin_version = '1.0.6'
-
 buildscript {
+    ext.kotlin_version = '1.0.6'
+
     repositories {
         jcenter()
         mavenCentral()
     }
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.6"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -18,7 +18,7 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 repositories {
-    maven { url "https://dl.bintray.com/brunodles/TempRepo/" }
+    maven { url "https://dl.bintray.com/brunodles/releases/" }
     mavenCentral()
 }
 
