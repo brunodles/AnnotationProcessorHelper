@@ -72,7 +72,6 @@ publishing {
             groupId publishing.group
             artifactId publishing.artifact
             version publishing.version
-
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', publishing.desc)
